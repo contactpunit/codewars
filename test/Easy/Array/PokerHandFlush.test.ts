@@ -14,4 +14,8 @@ describe('poker hand flush test suite', () => {
     it('should check it is not a flush', () => {
         expect(isFlush(["AD", "4S",  "7H", "KC", "5S"])).toBeFalsy()
     })
+
+    it('should check it is not a flush for empty array', () => {
+        expect(isFlush([])).toBeFalsy()
+    })
 })
