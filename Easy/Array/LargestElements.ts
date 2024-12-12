@@ -8,6 +8,5 @@
 
 export function largest(n, array) {
     // Find the n highest elements in a list
-    array.sort((a, b) => a - b)
-    return n === 0 ? [] : array.slice(-n)
+    return n === 0 ? [] : array.sort((a, b) => a - b).slice(-n)
   }
