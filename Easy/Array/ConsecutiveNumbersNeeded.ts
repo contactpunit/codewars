@@ -14,13 +14,12 @@
 // []  --> 0
 
 export function consecutive(array) {
-    // const total = array.sort().map((e, idx) => {
+    // const total = array.sort((a, b) => a - b).reduce((acc, curr, idx) => {
     //     if (idx === 0) return 0
-    //     else return e - array[idx - 1] - 1
-    // } )
-    const total = array.sort((a, b) => a - b).reduce((acc, curr, idx) => {
-        if (idx === 0) return 0
-        else return acc += curr - array[idx - 1] - 1
-    }, 0 )
-    return total
+    //     else return acc += curr - array[idx - 1] - 1
+    // }, 0 )
+    // return total
+
+    // Easier trick to solve this problem
+    return !array.length ? 0 : Math.max(...array) - Math.min(...array) - array.length + 1
 }
