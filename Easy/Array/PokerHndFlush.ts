@@ -14,5 +14,5 @@
 // ["AD", "4S", "7H", "KS", "10S"] ==> false
 
 export function isFlush(cards) {
-    return false
+    return !cards.length ? false : [... new Set(cards.map(card => card.slice(-1)))].length > 1 ? false : true
 }
