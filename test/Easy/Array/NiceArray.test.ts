@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { isNice } from '../../../Easy/Array/NiceArray'
 
-describe.only('NiceArray test suite', () => {
+describe('NiceArray test suite', () => {
     it('should test if array is nice', () => {
         const input = [2,10,9,3]
         const actual = isNice(input)
