@@ -1,0 +1,26 @@
+{
+  "name": "codewars",
+  "version": "1.0.0",
+  "description": "code practice using codewars",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "vitest --run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/contactpunit/codewars.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/contactpunit/codewars/issues"
+  },
+  "homepage": "https://github.com/contactpunit/codewars#readme",
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  }
+}
