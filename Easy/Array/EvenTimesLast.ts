@@ -6,14 +6,5 @@
 // If the sequence is empty, you should return 0.
 
 export function evenLast(numbers) {
-    let total = 0
-    for(let i = 0; i < numbers.length; i++) 
-    {
-        if(typeof numbers[i] === 'number' && 
-        !isNaN(numbers[i]) && 
-        i % 2 === 0) {
-            total += numbers[i]
-        }
-    }
-    return numbers.length > 0 ? total * numbers[numbers.length - 1] : 0
+    return numbers.filter((e, idx) => idx % 2 === 0).reduce((a, b) => a + b, 0) * numbers[numbers.length - 1] || 0
 }
