@@ -21,9 +21,10 @@
 // Write a function named isNice/IsNice that returns true if its array argument is a Nice array, else false. An empty array is not considered nice.
 
 export function isNice(arr: number[]) {
-  if (arr.length < 2) return false
-  for(const elem of arr) {
-    if (!arr.includes(elem - 1) && !arr.includes(elem + 1)) return false
-  }
-  return true
+  return !!(arr.length && arr.every(e => arr.some(x => x - 1 === e || x + 1 === e)))
+  // if (arr.length < 2) return false
+  // for(const elem of arr) {
+  //   if (!arr.includes(elem - 1) && !arr.includes(elem + 1)) return false
+  // }
+  // return true
   }
