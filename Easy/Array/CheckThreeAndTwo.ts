@@ -9,6 +9,8 @@
 export function checkThreeAndTwo(array) {
     const charMap = {}
     array.forEach(element => charMap[element] = (charMap[element] || 0) + 1 )
-    if (Object.keys(charMap).length !== 2) return false
-    return Object.keys(charMap).every(e => charMap[e] >= 2)
+    const values = Object.values(charMap)
+    return values.includes(2) && values.includes(3)
+    // if (Object.keys(charMap).length !== 2) return false
+    // return Object.keys(charMap).every(e => charMap[e] >= 2)
 }
