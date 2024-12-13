@@ -39,7 +39,6 @@ const boredomMap = {
 
 export function boredom(staff: object){
     const result = Object.values(staff).reduce((acc, curr) => acc + boredomMap[curr], 0)
-    console.log(result)
     if(result <= 80) {
         return 'kill me now'
     } else if (result < 100 && result > 80) return 'i can handle this'
