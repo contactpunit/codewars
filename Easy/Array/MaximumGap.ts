@@ -32,11 +32,11 @@
 
 // Note : Regardless the sign of negativity .
 
-export function maxGap (numbers){
-    let diff = 0
-    numbers.sort((a, b) => a - b).reduce((acc, cur) => {
-        if (Math.abs(cur - acc) > diff) diff = Math.abs(cur - acc)
-        return cur
-    }, numbers[0])
-    return diff
+export function maxGap (numbers) {
+    return numbers.sort((a, b) => a - b).reduce((acc, curr, idx) => {
+        if (Math.abs(numbers[idx + 1] - curr) > acc) {
+            acc = Math.abs(numbers[idx + 1] - curr)
+        }
+        return acc
+    }, 0)
 }
