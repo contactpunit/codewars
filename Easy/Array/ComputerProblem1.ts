@@ -17,11 +17,10 @@
 // Do not expect any negative or invalid inputs.
 
 export function save(sizes, hd) {
-    let count = 0, total = 0
-    for (let i = 0; i < sizes.length; i++) {
-        total += sizes[i]
-        if (total > hd) return count
-        count += 1
-    }
-    return count
+    let counter = 0
+    sizes.reduce((acc, curr) => {
+        if (acc + curr <= hd) counter += 1
+        return acc+= curr  
+    }, 0)
+    return counter
 }
