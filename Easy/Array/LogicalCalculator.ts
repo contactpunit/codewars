@@ -20,5 +20,8 @@
 // A Boolean value (True or False).
 
 export function logicalCalc(array, op){
-    return !!eval(array.join(op === 'AND' ? ' && ' : op === 'OR' ? ' || ' : ' ^ '))
+    if (op === 'AND') return array.every(e => e)
+    else if (op === 'OR') return array.some(e => e)
+    else return !!array.reduce((acc, e) => acc ^ e)
+    // return !!eval(array.join(op === 'AND' ? ' && ' : op === 'OR' ? ' || ' : ' ^ '))
 }
