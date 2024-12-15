@@ -9,13 +9,5 @@
 //  86420 ---> "86420"
 
 export function insertDash(num) {
-    return num.toString().split('').reduce((acc, curr, idx, arr) => {
-        if (arr[idx] % 2 !== 0 && arr[idx + 1] % 2 !== 0 && arr[idx + 1]) {
-            acc += `${curr}-`
-            return acc
-        } else {
-            acc += curr
-            return acc
-        }
-    }, '')
+    return num.toString().replace(/([13579])(?=[13579])/g, '$1-')
  }
