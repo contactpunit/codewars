@@ -8,5 +8,5 @@
 
 
 export function alternate(n, firstValue, secondValue) {
-    return (new Array(n).fill(0)).map((_, idx, array) => idx % 2 === 0  ? array[idx] = firstValue : array[idx] = secondValue)
+    return Array.from({length: n}, (_, idx) => idx % 2 === 0 ? firstValue : secondValue)
 }
