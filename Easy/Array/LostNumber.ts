@@ -11,9 +11,7 @@
 // Note: N may be 1 or less (in the latter case, the first array will be []).
 
 export function findDeletedNumber(arr, mixArr) {
-    const s1 = new Set(arr)
-    const s2 = new Set(mixArr)
-    const result  = [... s1].filter(x => !s2.has(x))
-    if (!result.length) return 0
-    return result[0]
-  }
+    const arrSum = arr.reduce((acc, curr) => acc += curr, 0)
+    const mixArrSum = mixArr.reduce((acc, curr) => acc += curr, 0)
+    return arrSum - mixArrSum   
+}
