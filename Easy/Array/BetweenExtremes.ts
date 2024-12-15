@@ -11,6 +11,5 @@
 //  no integer overflow.
 
 export function betweenExtremes(numbers) {
-    numbers.sort((a, b) => a - b)
-    return numbers.slice(-1)[0] - numbers.slice(0)[0]
+    return Math.max(... numbers) - Math.min(... numbers)
 }
