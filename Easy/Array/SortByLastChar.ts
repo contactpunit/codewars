@@ -7,9 +7,10 @@
 // All inputs will be valid.
 
 export function last(x) {
-    return x.split(' ').sort((a, b) => {
-        if (a.slice(-1) > b.slice(-1)) return 1
-        else if (a.slice(-1) < b.slice(-1)) return -1
-        else return 0
-    })
+    return x.split(' ').sort((a, b) => a.charCodeAt(a.length - 1) - b.charCodeAt(b.length - 1))
+    // return x.split(' ').sort((a, b) => {
+    //     if (a.slice(-1) > b.slice(-1)) return 1
+    //     else if (a.slice(-1) < b.slice(-1)) return -1
+    //     else return 0
+    // })
 }
