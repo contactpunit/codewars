@@ -7,9 +7,12 @@
 
 export const capitals = function (word) {
 	if (!word) return []
-	const upper : number[] = []
-	for(const [id, e] of word.split('').entries()) {
-		if (e.toUpperCase() === e) upper.push(id)
-	}
-	return upper
+	const soln = word.split('').reduce((acc, curr, idx) => {
+		if (curr.toUpperCase() === curr) {
+			acc.push(idx)
+		}
+		return acc
+	}, [])
+
+	return soln
 };
