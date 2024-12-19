@@ -5,12 +5,5 @@
 // Note: input will never be an empty string
 
 export function fakeBin(x){
-    return x.split('').reduce((acc, curr) => {
-        if (+curr < 5) {
-            acc += '0'
-        } else {
-            acc += '1'
-        }
-        return acc
-    }, '')
+    return x.replace(/\d/g, d => d < 5 ? '0' : '1')
 }
