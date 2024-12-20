@@ -20,8 +20,6 @@ export function planeSeat(a){
     if (seatNum > 60 || seatNum < 1) return 'No Seat!!'
     if (seatCode > 90 || seatCode < 65 || seatCode === 73 || seatCode === 74) return 'No Seat!!'
     else {
-        const fNum = seatNum < 21 ? 'Front' : seatNum > 20 && seatNum < 40 ? 'Middle' : 'Back'
-        const fCode = seatCode < 68 && seatCode > 64 ? 'Left' : seatCode > 67 && seatCode < 71 ? 'Middle' : 'Right'
-        return `${fNum}-${fCode}`
+        return `${seatNum < 21 ? 'Front-' : seatNum > 20 && seatNum < 40 ? 'Middle-' : 'Back-'}${seatCode < 68 && seatCode > 64 ? 'Left' : seatCode > 67 && seatCode < 71 ? 'Middle' : 'Right'}`
     }
 }
