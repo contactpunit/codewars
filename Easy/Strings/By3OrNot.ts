@@ -12,5 +12,5 @@
 // Try to avoid using the % (modulo) operator.
 
 export function divisibleByThree(str){
-    return str.split('').reduce((acc, cur) => acc += +cur , 0) % 3 === 0 ? true : false
+    return Number.isInteger(str.split('').reduce((acc, cur) => acc += +cur , 0) / 3)
 }
