@@ -11,8 +11,5 @@
 // You can assume that you will be given a string and array of equal length and both containing valid characters (A-Z, a-z, or 0-9).
 
 export function scramble(str, arr) {
-    return str.split('').reduce((acc, curr, idx) => {
-        acc[arr[idx]] = curr
-        return acc
-    }, []).join('')
+    return arr.map((e, idx) => str[arr.indexOf(idx)]).join('')
 };
