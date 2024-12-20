@@ -5,5 +5,5 @@
 // Pak should not be the first or last word. Strings of just spaces should return an empty string.
 
 export function pak(s){
-    return s.split(' ').join(' pak ')
+    return s.trim().split(' ').join(' pak ')
 }
