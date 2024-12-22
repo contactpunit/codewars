@@ -9,6 +9,6 @@ describe('olympicRing() test suite', () => {
         ['MNXiQNoRjcvjwoBqAp', 'Gold!'],
         ['qRJjpfVAw"', 'Bronze!']
     ])('string %s returns %s', (input, result) => {
-        expect(olympicRing(input)).toEqual(result)
+        expect(olympicRing(input)).toBe(result)
     } )
 })
