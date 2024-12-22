@@ -21,13 +21,11 @@
 // `false`
 
 export function didWeWin(plays){
-    const result = plays.reduce((acc, curr) => {
-        if (curr.length) {
-            if(curr[1] === 'pass' || curr[1] === 'run') acc[0] += curr[0]
-            else if (curr[1] === 'turnover') acc[1] += 100
-            else acc[1] += curr[0]
-        }
-        return acc
-    }, [0, 0])
-    return result[0] - result[1] > 10 ? true : false
+    const res = plays.reduce((acc, curr) => {
+        if(curr[1] === undefined) return acc
+        if (curr[1] === 'pass' || curr[1] === 'run') return acc + curr[0]
+        if (curr[1] === 'sack') return acc - curr[0]
+        return acc - 999
+    }, 0)
+    return res > 10
   }
