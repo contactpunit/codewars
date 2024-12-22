@@ -26,7 +26,7 @@ export function sortTransform(a) {
     a.sort((a, b) => b - a)
     const third = indexes.map(e => String.fromCharCode(a[e])).join('')
     const s = a.map(e => String.fromCharCode(e))
-    s.sort()
-    const forth = indexes.map(e => s[e]).join('')
-    return `${first}-${second}-${third}-${forth}`
+    // s.sort()
+    // const forth = indexes.map(e => s[e]).join('')
+    return `${first}-${second}-${third}-${second}`
 }
