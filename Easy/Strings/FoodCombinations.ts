@@ -13,7 +13,18 @@
 export function actuallyReallyGood(foods) {
     if (!foods.length) return "You know what's actually really good? Nothing!"
 
-    const fFoods = [...new Set(foods)]
-    
+    foods = [...new Set(foods)];
+  let a, b;
+  
+  if (foods.length > 1) {
+    while (a === b) {
+      a = foods[Math.floor(Math.random() * foods.length)];
+      b = foods[Math.floor(Math.random() * foods.length)];
+    }
+  } else {
+    a = b = foods[0];
+  }
+  
+  return `You know what's actually really good? ${a[0].toUpperCase()}${a.slice(1).toLowerCase()} and more ${b.toLowerCase()}.`;
 
 }
