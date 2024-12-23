@@ -9,5 +9,5 @@
 // Return the resulting lamps string. See example tests for more clarity.
 
 export function flyBy(lamps, drone) {
-    return `${'o'.repeat(lamps.length - drone.length >= 0 ? drone.length : lamps.length)}${'x'.repeat(lamps.length - drone.length > 0 ? lamps.length - drone.length : 0)}`
+    return  [ ...lamps].fill('o', 0, lamps.length - drone.length >= 0 ? drone.length : lamps.length).join('')
 }
