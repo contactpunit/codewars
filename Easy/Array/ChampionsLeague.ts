@@ -15,9 +15,6 @@
 // countWins(winnerList1, 'Sportland') => should return 0
 
 export function countWins(winnerList, country) {
-    return winnerList.reduce((acc, curr)=> {
-        if (curr.country === country) acc += 1
-        return acc
-    }, 0)
+    return winnerList.filter(e => e.country === country).length
 }
 
