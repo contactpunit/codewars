@@ -17,6 +17,5 @@ export function arrange(arr) {
             else return 0
         }
     })
-    console.log(arr)
     return arr
 }
