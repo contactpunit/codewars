@@ -31,7 +31,7 @@
 
 export function countLanguages(list) {
     return list.reduce((acc, curr) => {
-        if (!Object.keys(acc).includes(curr.language)) acc[curr.language] = 1
+        if (!(curr.language in acc)) acc[curr.language] = 1
         else acc[curr.language] += 1
         return acc
     }, {})
