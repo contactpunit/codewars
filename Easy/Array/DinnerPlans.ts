@@ -12,13 +12,5 @@
 // If they are saying nothing in common, kill both samurai and blame a ninja. (output "death")
 
 export function commonGround(s1, s2){
-    const superString = s1.length >= s2.length ? s1 : s2
-    const subString = s1.length < s2.length ? s1 : s2
-    if (superString.includes(subString)) return subString
-    else {
-        const matches = subString.split(' ').filter(e => superString.split(' ').includes(e))
-        console.log(matches)
-        if (!matches.length) return 'death'
-        else return Array.from(new Set(matches)).join(' ')
-    }
+    return s2.split(' ').filter(e => s1.includes(e)).join(' ') || 'death'
 }
