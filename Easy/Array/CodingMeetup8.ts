@@ -21,5 +21,5 @@
 // The input array and continent names will always be valid and formatted as in the list above for example 'Africa' will always start with upper-case 'A'
 
 export function allContinents(list) {
-    return list.reduce((acc, curr) => acc.add(curr.continent),new Set()).size === 5
+    return ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'].every(e => list.some(l => l.continent === e))
 }
