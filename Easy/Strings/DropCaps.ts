@@ -11,27 +11,5 @@
 // Note: you will be provided atleast one word and should take string as input and return string as output.
 
 export function dropCap(n) {
-    let res = ''
-    if (!n || n.length < 3) return n
-    for(let i=0; i< n.length; i++) {
-        if (i === 0 && (n[i + 2] === ' ' || n[i + 1] === ' ')) {
-            res += n[i]
-            res += n[i + 1]
-            i += 1
-            continue
-        }
-        else if (n[i] === ' ') res += n[i]
-        else if (i !== 0 && n[i - 1] === ' ' && (n[i + 2] === ' ' || n[i + 1] === ' ' || n[i + 2] === undefined)) {
-            res += n[i]
-            if (n[i + 1]) res += n[i + 1]
-            i += 1
-            continue
-        }
-        else if (i === 0  || n[i - 1] === ' ') {
-            res += n[i].toUpperCase()
-        } else {
-            res += n[i].toLowerCase()
-        }
-    }
-    return res
+    return n.replace(/\S{3,}/g, (x) => x[0].toUpperCase().concat(x.slice(1).toLowerCase()))
 }
