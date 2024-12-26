@@ -11,16 +11,9 @@
 // [-1,0,2,3,4]
 
 export function findMissingNumbers(arr) {
-    return arr.reduce((acc, curr, idx) => {
-        if (idx !== 0) {
-            if (curr - arr[idx - 1] !== 1) {
-                let j = 1
-                while(arr[idx - 1] + j < curr) {
-                    acc.push(arr[idx - 1] + j)
-                    j += 1
-                }
-            }
-        }
-        return acc
-    }, [])
+    const result : number[] = []
+    for(let i = arr[0]; i < arr[arr.length - 1]; i ++) {
+        if (!arr.includes(i)) result.push(i)
+    }
+    return result
 }
