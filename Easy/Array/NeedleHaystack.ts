@@ -12,6 +12,5 @@
 // ["hay", "junk", "hay", "hay", "moreJunk", "needle", "randomJunk"] --> "found the needle at position 5" 
 
 export function findNeedle(haystack) {
-    const idx = haystack.findIndex(e => e === 'needle')
-    if (idx != -1 ) return `found the needle at position ${idx}`
+    return `found the needle at position ${haystack.findIndex(e => e === 'needle')}`
 }
