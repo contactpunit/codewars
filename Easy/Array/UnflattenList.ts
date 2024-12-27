@@ -31,13 +31,11 @@
 //    so take these (3,3) as sub-array in the new array.
 
 export function unflatten (flatArray) {
-    const result : any = []
-    for (let i = 0; i < flatArray.length; i ++) {
-        if (flatArray[i] < 3) result.push(flatArray[i])
-        else {
-            result.push(flatArray.slice(i, i + flatArray[i]))
-            i = i + flatArray[i] - 1
+    return flatArray.reduce((acc, curr, idx, arr) => {
+        if (curr < 3) acc.push(curr)
+        else if (Number.isInteger(curr) && curr > 2) {
+            acc.push(arr.splice(idx, curr, null))
         }
-    }
-    return result
+        return acc
+    }, [])
 }
