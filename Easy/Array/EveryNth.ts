@@ -16,9 +16,5 @@
 // every([0,1,2,3,4],3,1) -> [1,4]
 
 export function checkevery(arr, interval = 1, start = 0){
-    return arr.filter((_, idx) => {
-        if (idx === start || (idx - start >= 0 && (idx - start) % interval === 0)) {
-            return true
-        }
-    })
+    return arr.slice(start).filter((e , idx) => idx % interval === 0)
 }
