@@ -13,10 +13,11 @@
 // 4. -6
 
 export var calc = function(a) {
-    return a.map((r, idx) => {
-        if(r > 0) r = r * r
-        if((idx + 1) % 3 === 0) r = r * 3
-        if((idx + 1) % 5 === 0) r = r * -1
-        return r
-    }).reduce((acc, curr) => acc += curr)
+    return a.reduce((acc, curr, idx) => {
+        if (curr > 0) curr = curr * curr
+        if ((idx + 1) % 3 === 0) curr = curr * 3
+        if ((idx + 1) % 5 === 0) curr = curr * -1
+        acc += curr
+        return acc
+    }, 0)
 }
