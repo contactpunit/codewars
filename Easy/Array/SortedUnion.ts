@@ -7,10 +7,6 @@
 // Check the assertion tests for examples.
 
 export function uniteUnique(...input) {
-    return [...input].reduce((acc, cur) => {
-        cur.forEach(element => {
-            if (!acc.includes(element)) acc.push(element)
-        })
-        return acc
-    } , [])
+    const final = [].concat(...input)
+    return final.filter((e, i) => final.indexOf(e) === i)
 }
