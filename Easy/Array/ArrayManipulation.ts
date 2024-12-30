@@ -12,14 +12,8 @@
 // Note: Return a new array, rather than modifying the passed array.
 
 export function arrayManip(array){
-    return array.reduce((acc, curr, idx) => {
-        const bigger = array.slice(idx + 1).filter(e => e > curr)
-        if(!bigger.length) acc.push(-1)
-        else {
-            const reqIdx = array.slice(idx + 1).findIndex(e => e === Math.min(...bigger))
-            acc.push(array.slice(idx + 1)[reqIdx])
-        }
-        return acc
-    }, [])
+    const temp = array.map((e, i) => [e, i]).sort((a, b) => a[0] - b[0])
+    const result = array.map((e, i) => (temp.find(k => k[0] > e && k[1] > i) || [-1])[0])
+    return result
 }
   
