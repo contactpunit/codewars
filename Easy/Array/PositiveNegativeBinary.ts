@@ -28,18 +28,10 @@
 
 export function positiveToNegative(b) {
     if(b.every(e => e === 0)) return b
-    const flipped = b.map(e => e === 1 ? 0 : 1)
-    if (flipped[flipped.length - 1] === 0) {
-        flipped[flipped.length - 1] = 1
-    } else {
-        let i = flipped.length - 1
-        while(i > -1 && flipped[i] === 1) {
-            flipped[i] = 0
-            i -= 1
-        }
-        if (i > -1) {
-            flipped[i] = 1
-        }
+    b = b.map(e => 1 - e)
+    for (let i = b.length - 1; i >=0 ; i--) {
+        b[i] = 1 - b[i]
+        if (b[i]) break
     }
-    return flipped
+    return b
 }
