@@ -14,8 +14,10 @@
 
 export function isInertial(array) {
     if (array.length < 3) return false
-    array.sort((a, b) => a - b)
     const maxVal = Math.max(...array)
     if ((maxVal % 2) !== 0) return false
-    return array.slice(1, 3).every(e => e % 2 === 0)
+    const odds = array.filter(e => (e % 2) != 0)
+    if (!odds.length) return false
+    const evens = array.filter(e => (e % 2) == 0 && e !== maxVal)
+    return odds.every( o => evens.every(e => o > e))
 }
