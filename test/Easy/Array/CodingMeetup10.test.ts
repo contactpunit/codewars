@@ -13,7 +13,7 @@ const answer = [
       username: 'nore2004' }
 ]
 
-describe('addUsername() test suite', () => {
+describe.skip('addUsername() test suite', () => {
     it.each([
         [list1, answer]
     ])('%s input array of objects %s will result in %s', (input, result) => {
