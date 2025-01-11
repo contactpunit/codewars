@@ -11,21 +11,8 @@
 // Don't let any numbers onto the boat!!
 
 export function boatLoader(a) {
-    const boatMap = {}
-    for(const k of a) {
-        if (typeof k === 'string' && k.match(/^[a-zA-Z]+$/)) {
-            if (k in boatMap) boatMap[k] += 1
-            else boatMap[k] = 1
-        }
-    }
-    const valid = Object.entries(boatMap).reduce((acc: any, cur: any) => {
-        if (cur[1] >= 2) {
-            acc.push([cur[0], cur[0]])
-        }
-        return acc
-    }, [])
-    return valid.sort((c, d) => {
-        if (c[0].toLowerCase() === d[0].toLowerCase()) return d[0].localeCompare(c[0])
-        else return c[0].toLowerCase().localeCompare(d[0].toLowerCase())
-    })
+    const strs = a.filter(a => isNaN(a))
+    strs.sort((b, c) => b.toLowerCase() === c.toLowerCase() ? c.localeCompare(b) : b.toLowerCase().localeCompare(c.toLowerCase()))
+    const result = strs.reduce((acc, curr, i) => (!i || acc[acc.length - 1][0] !== curr ? acc.push([curr]) : acc[acc.length - 1].length < 2 && acc[acc.length - 1].push(curr), acc), [])
+    return result.filter(r => r.length === 2)
 }
