@@ -17,16 +17,5 @@
 const arr: string[] = ["top left","top middle","top right","middle left","center","middle right","bottom left", "bottom middle", "bottom right"]
 
 export function fire(x,y) {
-    const matrix:any = []
-    let temp: string[] = []
-    for(let i = 0; i < arr.length; i++) {
-        if ((i + 1) % 3 === 0) {
-            temp.push(arr[i])
-            matrix.push(temp)
-            temp = []
-        } else {
-            temp.push(arr[i])
-        }
-    }
-    return matrix[y][x]
+    return arr[x + (3 * y)]
 }
