@@ -13,8 +13,8 @@
 
 export function orArrays(arr1: number[], arr2: number[], p=0) {
     if (arr1.length !== arr2.length) {
-        if (arr1.length < arr2.length) arr1 = arr1.concat(Array(arr2.length - arr1.length).fill(p || 0))
-        else arr2 = arr2.concat(Array(arr1.length - arr2.length).fill(p || 0))
+        if (arr1.length < arr2.length) arr1 = arr1.concat(Array(arr2.length - arr1.length).fill(p))
+        else arr2 = arr2.concat(Array(arr1.length - arr2.length).fill(p))
     }
     return arr1.map((e, i) => e | arr2[i])
 }
