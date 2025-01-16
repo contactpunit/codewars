@@ -7,5 +7,5 @@
 
 export function getNewNotes(salary,bills){
     const total = bills.reduce((acc, curr) => acc -= curr, salary)
-    return Math.trunc(total / 5) > 0 ? Math.trunc(total / 5) : 0
+    return Math.max(Math.trunc(total/5), 0)
 }
