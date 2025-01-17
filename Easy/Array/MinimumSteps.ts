@@ -21,12 +21,6 @@
 // Now the result is greater or equal to 6 , Hence the output is (2) i.e (2) operations are required to do this .
 
 export function minimumSteps(numbers, value){
-    numbers.sort((a, b) => a - b)
-    let count = 0
     let sum = 0
-    for(let num of numbers) {
-        sum += num
-        if(sum >= value) return count
-        count += 1
-    }
+    return numbers.slice(0).sort((a, b) => a - b).findIndex(e => (sum += e) >= value)
 }
