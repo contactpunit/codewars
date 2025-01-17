@@ -29,15 +29,8 @@
 
 export function pairZeros(arr) {
     let count = 0
-    return arr.reduce((acc, curr) => {
-        if(curr === 0 && count === 0) {
-            count = 1
-            acc.push(curr)
-        } else if( curr !== 0) {
-            acc.push(curr)
-        } else if(curr === 0 && count === 1) {
-            count = 0
-        }
-        return acc
-    }, [])
+    return arr.filter(e => {
+        if(e !== 0 || count++ % 2 === 0) return true
+        else return false
+    })
 }
