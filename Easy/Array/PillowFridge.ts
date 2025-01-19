@@ -16,12 +16,5 @@
 export function pillow(s) {
     const pillow = s[0].split('')
     const fridge = s[1].split('')
-    const idxs: number[] = []
-    for(let i = 0; i < pillow.length; i ++) {
-        if(pillow[i] === 'n') idxs.push(i)
-    }
-    for(let j of idxs) {
-        if(fridge[j] === 'B') return true
-    }
-    return false
+    return pillow.some((e, i) => e === 'n' && fridge[i] === 'B')
 }
