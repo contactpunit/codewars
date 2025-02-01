@@ -16,13 +16,9 @@
 // Explanation:
 // The number's digits { 1 , 2 } are in non-Decreasing Order (i.e) 1 <= 2 .
 
-// tidyNumber (32) ==> return (false)
+// tidyNumber (32) ==> return (falses)
 
 export function tidyNumber(n) {
     const a = n.toString().split('')
-    console.log(a)
-    for(let i = 0; i < a.length - 1; i ++) {
-        if(a[i] > a[i + 1]) return false
-    }
-    return true
+    return a.every((e, idx) => !idx || e >= a[idx - 1])
 }
