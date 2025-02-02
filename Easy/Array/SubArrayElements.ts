@@ -5,6 +5,6 @@
 
 // One small note is that not always each sub-array will have enough elements, in which case you should then use a default value (if provided) or 0 (if not provided), as shown in the test cases.
 
-export function elementsSum(arr, d){
-    return arr.reduce((acc, curr, i) =>  acc += (curr[arr.length - i - 1] !== undefined ? curr[arr.length - 1 - i] : (d ? d : 0)),0)
+export function elementsSum(arr, d = 0){
+    return arr.reduce((acc, curr, i) =>  acc += (curr[arr.length - i - 1] !== undefined ? curr[arr.length - 1 - i] : d),0)
 }
