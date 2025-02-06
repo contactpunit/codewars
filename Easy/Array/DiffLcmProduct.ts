@@ -18,16 +18,9 @@
 
 export function sumDifferencesBetweenProductsAndLCMs(pairs) {
     const products = pairs.map(e => e.reduce((acc, curr) => acc *= curr, 1))
-    const lcms = pairs.map(e => {
-        if(e.some(l => l === 0)) return 0
-        let min = e[0] > e[1] ? e[0] : e[1]
-        while(true) {
-            if (min % e[0] === 0 && min % e[1] === 0) {
-                break
-            }
-            min += 1
-        }
-        return min
-   })
+    const gcd = (x,y) => x == 0 ? y : gcd(y % x, x)
+    const lcm = (x,y) => x * y == 0 ? 0 : x * y / gcd(x,y)
+    const lcms = pairs.map(e => lcm(e[0], e[1]))
+    console.log(lcms)
    return products.map((e, i) => e - lcms[i]).reduce((acc, curr) => acc+= curr , 0)
 }
