@@ -36,10 +36,11 @@
 export function getVillainName(birthday) {
     const m = ["Evil", "Vile", "Cruel", "Trashy", "Despicable", "Embarrassing", "Disreputable", "Atrocious", "Twirling", "Orange", "Terrifying", "Awkward"];
     const d = ["Mustache", "Pickle", "Hood Ornament", "Raisin", "Recycling Bin", "Potato", "Tomato", "House Cat", "Teaspoon", "Laundry Basket"];
-    const months = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december']
+    const months = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec']
 
-    const [month, day] = birthday.split('-')
-    const midx = months.findIndex(e => e === month.toLowerCase())
-    const dd = day.toString().length > 1 ? day.toString()[1] : day.toString()[0]
-    return 'The ' + m[midx] + ' ' + d[+dd]
+    const parts = birthday.toString().split(' ')
+    const [month, day] = parts.slice(1, 3)
+    const daynum = day.split('')[1]
+    const mIndex = months.findIndex(e => e === month.toLowerCase())
+    return 'The ' + m[mIndex] + ' ' + d[+daynum]
 }
