@@ -45,7 +45,6 @@ export function total(arr) {
     if (arr.length === 1) return arr[0]
     const newArr = arr.reduce((acc, curr, idx) => {
         if (idx !== arr.length - 1) {
-            console.log(acc)
             acc.push(curr + arr[idx + 1])
         }
         return acc
