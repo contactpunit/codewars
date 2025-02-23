@@ -19,14 +19,7 @@
 export function dayPlan(hours, tasks, duration) {
     const availableMin = hours * 60
     const requiredMin = tasks * duration
-    const result: number[] = []
-    if (requiredMin > availableMin) return 'You\'re not sleeping tonight!'
-    else {
-        const breakTime = Math.round((availableMin - requiredMin) / (tasks - 1))
-        for (let i = 0; i < tasks; i++) {
-            result.push(duration)
-            if (i < tasks - 1) result.push(breakTime)
-        }
-    }
+    if (requiredMin > availableMin) return "You're not sleeping tonight!"
+    const result = [...Array(2 * tasks - 1)].map((e, idx) => idx % 2 === 0 ? duration : Math.round((availableMin - requiredMin) / (tasks - 1)))
     return result
 }
