@@ -13,6 +13,5 @@ export function averageLength(array) {
     const total = array.reduce((acc, curr) => acc += curr.length, 0)
     const nums = array.length
     const avg = Math.round(total / nums)
-    console.log(avg)
     return array.map(e => e[0].repeat(avg))
 }
