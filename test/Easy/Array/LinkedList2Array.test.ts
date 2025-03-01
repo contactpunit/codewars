@@ -9,6 +9,6 @@ describe('listToArray test suite', () => {
         [list1, [1, 2, 3]],
         [list2, ["foo", "bar"]]
     ])('input %s gets result %s', (input, result) => {
-        expect(listToArray(input)).toBe(result)
+        expect(listToArray(input)).toEqual(result)
     })
 })
