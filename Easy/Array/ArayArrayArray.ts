@@ -9,10 +9,8 @@
 
 // if (x) == ['a', 3] you should return [['a', 3], ['a', 3], ['a', 3]].
 export function explode(x) {
-    let times = 0
-    if (!Number.isInteger(x[0]) && !Number.isInteger(x[1])) return 'Void!'
-    if (Number.isInteger(x[0])) times = x[0]
-    if (Number.isInteger(x[1])) times += x[1]
-    if (times === 0) return []
-    else return Array(times).fill(x)
+    if (Number.isInteger(x[0]) && Number.isInteger(x[1])) return new Array(x[0] + x[1]).fill(x)
+    if (Number.isInteger(x[0])) return new Array(x[0]).fill(x)
+    if (Number.isInteger(x[1])) return new Array(x[1]).fill(x)
+    return 'Void!'
 }
