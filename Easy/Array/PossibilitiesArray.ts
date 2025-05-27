@@ -15,9 +15,5 @@
 // # Includes all numbers between 0 and a.length - 1(1 - 1 = 0).
 
 export function isAllPossibilities(x) {
-    const expected = Array.from(Array(x.length).keys())
-    for (const e of expected) {
-        if (!x.includes(e)) return false
-    }
-    return true
+    return x.length ? x.every((e, i) => x.includes(i)) : false
 }
