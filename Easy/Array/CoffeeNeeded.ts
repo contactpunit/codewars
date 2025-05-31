@@ -16,8 +16,8 @@
 
 export function howMuchCoffee(events) {
     const result = events.reduce((arr, curr) => {
-        if (/^[a-z0-9]+$/.test(curr)) arr += 1
-        else if (/^[A-Z0-9]+$/.test(curr)) arr += 2
+        if (/^['cw'|'dog'|'cat'|'movie']+$/.test(curr)) arr += 1
+        else if (/^['CW'|'DOG'|'CAT'|'MOVIE']+$/.test(curr)) arr += 2
         return arr
     }, 0)
     return result > 3 ? 'You need extra sleep' : result
