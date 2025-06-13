@@ -39,17 +39,7 @@
 
 // there are three arrays in the main array[], [[], [], []], []. 2 are dead ends but one is nested, which is inconsistent.
 
-const s: any = []
-export function isCleanlyNested(xs) {
-    return process(xs)
-}
 
-function process(vals) {
-    if (vals.length === 0) return true
-    const r1 = vals.every((elem) => elem.length === 0)
-    const r2 = vals.every((elem) => elem.length > 0)
-    if (r1) return true
-    else if (r2) {
-        return vals.every((child) => process(child))
-    } else return false
+export function isCleanlyNested(xs) {
+    return xs.every(child => child.length === 0) || (xs.every(child => child.length !== 0) && xs.every(isCleanlyNested))
 }
