@@ -16,8 +16,9 @@ import { Z } from "vitest/dist/chunks/reporters.D7Jzd9GS.js";
 // [1, 2, -3, 4, 5, 6, -7, 8]   => [5, 6, -7, 8, 1, 2, -3, 4]
 
 export function swapHeadAndTail(arr) {
-    if (arr.length % 2 === 0) {
-        return [...arr.slice(arr.length / 2,), ...arr.slice(0, arr.length / 2)]
-    }
-    return [...arr.slice([arr.length / 2 + 1]), arr[Math.trunc(arr.length / 2)], ...arr.slice(0, arr.length / 2)]
+    const middle = arr.length / 2
+    const mid = arr.slice(middle, -middle)
+    const start = arr.slice(0, middle)
+    const end = arr.slice(-middle)
+    return [...end, ...mid, ...start]
 }
