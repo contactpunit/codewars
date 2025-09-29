@@ -5,5 +5,13 @@
 // flatten([[[1, 2, 3]]]) ==> [[1, 2, 3]]
 
 export function flatten(arr) {
-    return arr.flat()
+    const res = arr.reduce((acc, curr) => {
+        if (Array.isArray(curr)) {
+            acc.push(...curr)
+        } else {
+            acc.push(curr)
+        }
+        return acc
+    }, [])
+    return res
 }
