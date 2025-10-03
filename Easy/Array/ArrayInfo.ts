@@ -27,15 +27,14 @@
 // Now let's get going !
 
 export function arrayInfo(arr) {
-    const len = arr.length
-    if (!len) return 'Nothing in the array!'
+    if (!arr.length) return 'Nothing in the array!'
     const r = arr.reduce((acc, curr) => {
-        if (curr && typeof curr === 'number' && Math.abs(curr % 1) === 0) acc[1][0] += 1
-        else if (curr && typeof curr === 'number' && curr % 1 !== 0) acc[2][0] += 1
+        if (curr === parseInt(curr)) acc[1][0] += 1
+        else if (curr === parseFloat(curr)) acc[2][0] += 1
         else if (/^\s+$/.test(curr)) acc[4][0] += 1
-        else if (curr && typeof curr === 'string') acc[3][0] += 1
+        else if (typeof curr === 'string') acc[3][0] += 1
         return acc
-    }, [[len], [0], [0], [0], [0]])
+    }, [[arr.length], [0], [0], [0], [0]])
 
     const result = r.map(e => e[0] === 0 ? [null] : e)
     return result
