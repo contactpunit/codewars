@@ -15,11 +15,5 @@
 // You are guaranteed that the number in the passed in string is placed somewhere after the first character of the string.The quotes either belong to "Batman", "Robin", or "Joker".
 
 export function getQuote(quotes, hero) {
-    const isMatch = hero.match(/\D*(\d)\D*/)
-    if (isMatch) {
-        const idx = isMatch[1]
-        if (hero.startsWith('R')) return `Robin: ${quotes[idx]}`
-        else if (hero.startsWith('B')) return `Batman: ${quotes[idx]}`
-        else return `Joker: ${quotes[idx]}`
-    }
+    return `${{ 'R': 'Robin', 'J': 'Joker', 'B': 'Batman' }[hero[0]]}: ${quotes[hero.match(/\d/)]}`
 }
