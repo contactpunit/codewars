@@ -4,9 +4,8 @@
 
 export function sorter(textbooks) {
     return textbooks.sort((a, b) => {
-        const aSmall = a.toLowerCase()
-        const bSmall = b.toLowerCase()
-        if (aSmall[0] === bSmall[0]) return aSmall.localeCompare(bSmall)
-        else return aSmall.charCodeAt(0) - bSmall.charCodeAt(0)
+        if (a.toLowerCase() > b.toLowerCase()) return 1
+        else if (a.toLowerCase() < b.toLowerCase()) return -1
+        else return 0
     })
 }   
