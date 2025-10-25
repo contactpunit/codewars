@@ -3,10 +3,5 @@
 //     P.S.Each array includes only integer numbers.Output is a number too.
 
 export function arrayPlusArray(arr1, arr2) {
-    let sum = 0
-    for (const arr of [arr1, arr2]) {
-        const res = arr.reduce((acc, curr) => acc + curr, 0)
-        sum += res
-    }
-    return sum
+    return arr1.concat(arr2).reduce((acc, curr) => acc + curr, 0)
 }
