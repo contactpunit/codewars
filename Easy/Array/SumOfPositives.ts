@@ -15,8 +15,5 @@
 // If there is nothing to sum, the sum is default to 0.
 
 export function positiveSum(arr) {
-    return arr.reduce((acc, curr) => {
-        if (curr > 0) acc += curr
-        return acc
-    }, 0)
+    return arr.reduce((acc, curr) => curr > 0 ? acc + curr : acc, 0)
 }
