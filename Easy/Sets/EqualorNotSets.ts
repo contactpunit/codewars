@@ -30,8 +30,5 @@ export function areEqual(s1, s2) {
 }
 
 export function notEqual(s1, s2) {
-    if (s1.size !== s2.size) return true
-    else {
-        return !([...s1].every(e => s2.has(e)))
-    }
+    return !areEqual(s1, s2)
 }
