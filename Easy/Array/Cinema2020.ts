@@ -1,31 +1,14 @@
 export function maximumSeating(seats) {
-    let i = 0
-    let pos = null
-    let count = 0
-    let maxCounts = 0
-    while (i <= seats.length - 1) {
-        if (seats[i] === 0) {
-            count += 1
-            if (i === 0 || i === seats.length - 1) pos = 'diff'
-        } else {
-            // if pos is start
-            if (pos === 'diff') {
-                maxCounts += Math.trunc(count / 3)
-                pos = null
-            } else {
-                // if pos is not start
-
-            }
+    let maxCount = 0
+    for (let i = 0; i < seats.length; i++) {
+        let left2 = seats[i - 2] || 0
+        let left1 = seats[i - 1] || 0
+        let right1 = seats[i + 1] || 0
+        let right2 = seats[i + 2] || 0
+        if (left2 === 0 && left1 === 0 && right1 === 0 && right2 === 0 && seats[i] === 0) {
+            maxCount += 1
+            seats[i] = 1
         }
-        i += 1
     }
-    if (count > 0) {
-        if (pos === 'start') maxCounts += Math.trunc(count / 3) + 1
-        else maxCounts += Math.trunc(count / 3)
-    }
-    console.log(maxCounts)
+    return maxCount
 }
-
-maximumSeating([0, 0, 0, 1, 0, 0, 1, 0, 0, 0])
-maximumSeating([0, 0, 0, 0])
-maximumSeating([1, 0, 0, 0, 0, 0, 1])
