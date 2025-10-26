@@ -4,7 +4,7 @@ export default defineConfig({
   test: {
     // Use absolute path to ensure Vitest is looking at the right location
     include: [
-      // 'test/Easy/Array/**/*test.ts',
+      'test/Easy/Array/**/*test.ts',
       'test/Easy/Sets/**/*test.ts'
     ],  // Ensure your test files end with 'test.ts'
     exclude: [
