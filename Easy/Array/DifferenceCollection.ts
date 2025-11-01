@@ -10,7 +10,5 @@
 // difference = [a, e, g, j, k]
 
 export function diff(a, b) {
-    const adiff = a.filter(e => !b.includes(e))
-    const bdiff = b.filter(e => !a.includes(e))
-    return [... new Set(adiff.concat(bdiff))].sort((x, y) => x.localeCompare(y))
+    return [... new Set([...a, ...b].filter(e => a.includes(e) ^ b.includes(e)))].sort()
 }
