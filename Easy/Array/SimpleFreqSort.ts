@@ -18,17 +18,5 @@ export function solve(arr) {
         }
         return acc
     }, {})
-    const res = Object.entries(hash).sort((a, b) => {
-        if (a[1] > b[1]) return -1
-        else if (a[1] < b[1]) return 1
-        else {
-            if (+a[0] > +b[0]) return 1
-            else return -1
-        }
-    })
-
-    return res.reduce((acc, curr) => {
-        acc.push(...Array(curr[1]).fill(+curr[0]))
-        return acc
-    }, [])
+    return arr.slice().sort((a, b) => hash[b] - hash[a] || a - b)
 }
