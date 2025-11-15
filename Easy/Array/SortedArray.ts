@@ -6,6 +6,5 @@
 // Be mindful of performance.
 
 export function nthSmallest(n, ...arrays) {
-    console.log(arrays.flat().sort((a, b) => a - b))
     return arrays.flat().sort((a, b) => a - b)[n - 1]
 }
