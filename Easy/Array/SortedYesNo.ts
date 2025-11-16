@@ -12,9 +12,5 @@
 // there will be no arrays where all elements are equal
 
 export function isSortedAndHow(array) {
-    const ascSorted = [...array].sort((a, b) => a - b)
-    if (array.join('') === ascSorted.join('')) return 'yes, ascending'
-    const descSorted = [...array].sort((a, b) => b - a)
-    if (array.join('') === descSorted.join('')) return 'yes, descending'
-    return 'no'
+    return array.every((e, i) => i === 0 || e >= array[i - 1]) ? 'yes, ascending' : array.every((e, i) => i === 0 || e <= array[i - 1]) ? 'yes, descending' : 'no'
 }
